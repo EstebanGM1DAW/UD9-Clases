@@ -6,6 +6,5 @@ public class FraccionPrueba {
         f2.setFraccion(10, 5);
         Fraccion f3 = Fraccion.dividir(f1, f2);
         System.out.println(f3.getDenominador() + "\n---\n" + f3.getNumerador());
-
     }
 }

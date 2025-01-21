@@ -1,7 +1,7 @@
 public class Fraccion {
     //atributos
-    int denominador;
-    int numerador;
+    private int denominador;
+    private int numerador;
     //getters
     public int getDenominador() {
         return denominador;
@@ -35,18 +35,6 @@ public class Fraccion {
         return resultado;
     }
     public void simplificar(){
-        do {
-        if (numerador%2==0 && denominador%2==0) {
-            numerador = numerador/2;
-            denominador = denominador/2;
-        } 
-        if (numerador%3==0 && denominador%3==0) {
-            numerador = numerador/3;
-        }
-        if (numerador%5==0 && denominador%5==0) {
-            numerador = numerador/5;
-            denominador = denominador/5;
-        }
-    } while (numerador > 1 && denominador > 1);
+       
     }
 }
