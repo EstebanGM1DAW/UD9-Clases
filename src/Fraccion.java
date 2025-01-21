@@ -35,23 +35,22 @@ public class Fraccion {
         return resultado;
     }
     public static void simplificar(Fraccion f1){
-       int dividendo, divisor, mcd, resto;
-       if (f1.numerador<f1.denominador) {
-            dividendo = f1.numerador;
-            divisor = f1.denominador;
-       } else {
-            divisor = f1.denominador;
-            dividendo = f1.numerador;
+       int mcd = Fraccion.MaximoComunDivisor(f1.getDenominador(), f1.getNumerador());
+        // Simplificar la fracción dividiendo por el MCD
+        f1.numerador =f1.numerador/mcd;
+        f1.denominador = f1.denominador/mcd;
        }
+       public static int MaximoComunDivisor(int a, int b) {
+        int divisor = Math.max(a, b);
+        int dividendo = Math.min(a, b);
+        int mcd, resto;
         while (divisor != 0) {
             resto = dividendo % divisor;
             dividendo = divisor;
             divisor = resto;
         }
-        mcd = dividendo; // El último "dividendo" es el MCD
-    
-        // Simplificar la fracción dividiendo por el MCD
-        f1.numerador =f1.numerador/mcd;
-        f1.denominador = f1.denominador/mcd;
+        mcd = dividendo;
+        return mcd;
        }
     }
+    
