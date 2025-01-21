@@ -34,7 +34,24 @@ public class Fraccion {
         resultado.setFraccion(num,den);
         return resultado;
     }
-    public void simplificar(){
-       
+    public static void simplificar(Fraccion f1){
+       int dividendo, divisor, mcd, resto;
+       if (f1.numerador<f1.denominador) {
+            dividendo = f1.numerador;
+            divisor = f1.denominador;
+       } else {
+            divisor = f1.denominador;
+            dividendo = f1.numerador;
+       }
+        while (divisor != 0) {
+            resto = dividendo % divisor;
+            dividendo = divisor;
+            divisor = resto;
+        }
+        mcd = dividendo; // El último "dividendo" es el MCD
+    
+        // Simplificar la fracción dividiendo por el MCD
+        f1.numerador =f1.numerador/mcd;
+        f1.denominador = f1.denominador/mcd;
+       }
     }
-}
