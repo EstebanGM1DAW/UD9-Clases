@@ -1,3 +1,4 @@
+package Pizza;
 public class Pizza {
     private String tamaño,tipo,estado;
     static int pizzasServidas = 0;
