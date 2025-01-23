@@ -7,19 +7,19 @@ public class Incidencia {
     String estado;
     int puesto;
     String solucion;
-    public Incidencia(String incidencia) {
+    public Incidencia(int codigo,String incidencia) {
         this.incidencia = incidencia;
-        this.estado = "pendiente";
-        numIncidencia++;
+        this.estado = "Pendiente";
+        this.numIncidencia = numIncidencia+1;
         pendientes++;
-        this.puesto = (int) (Math.random()*100+1);
+        this.puesto = codigo;
     }
     @Override
     public String toString() {
         String mensaje="";
-        if (estado.equals("pendiente")) {
+        if (estado.equals("Pendiente")) {
             mensaje = "Incidencia"+numIncidencia+": " + "- Puesto: "+ puesto+ " - "+incidencia +" - "+estado;  
-        } else if (estado.equals("resuelta")) {
+        } else if (estado.equals("Resuelta")) {
             mensaje = "Incidencia"+numIncidencia+": " + "- Puesto: "+ puesto+ " - "+ estado+ " - "+solucion;  
         }
         return mensaje;
@@ -38,11 +38,8 @@ public class Incidencia {
         return numIncidencia;
     }
     public void resuelve(String solucion){
-        if (estado.equals("pendiente")) {
-            pendientes--;
-            this.solucion = solucion;
-            estado = "resuelta";
-
-        }
+        pendientes--;
+        this.solucion = solucion;
+        estado = "Resuelta";
     }
 }
