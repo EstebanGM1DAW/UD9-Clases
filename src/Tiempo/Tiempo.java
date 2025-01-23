@@ -22,5 +22,13 @@ public class Tiempo {
         int segundos = totalSegundos % 60;
         return horas + "h:" + minutos + "m:" + segundos + "s";
     }
+    public static String restar(int minutos1, int segundos1, int minutos2, int segundos2){
+        int totalSegundos = segundos1 + segundos2;
+        int totalMinutos = minutos1 + minutos2 + totalSegundos / 60;
+        int horas = totalMinutos / 60;
+        int minutos = totalMinutos % 60;
+        int segundos = totalSegundos % 60;
+        return horas + "h:" + minutos + "m:" + segundos + "s";
+    }
     
 }
