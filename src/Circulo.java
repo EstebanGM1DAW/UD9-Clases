@@ -2,7 +2,6 @@ public class Circulo {
     //atributos
     private int x;
     private int y;
-    private int radio;
     //metodos
     int obtenerX() {
         return x;

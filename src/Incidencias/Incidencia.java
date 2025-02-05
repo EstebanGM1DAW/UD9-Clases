@@ -3,6 +3,7 @@ package Incidencias;
 public class Incidencia {
     String incidencia;
     int numIncidencia;
+    static int codigoInci= 1;
     static int pendientes;
     String estado;
     int puesto;
@@ -10,7 +11,7 @@ public class Incidencia {
     public Incidencia(int codigo,String incidencia) {
         this.incidencia = incidencia;
         this.estado = "Pendiente";
-        this.numIncidencia = numIncidencia+1;
+        this.numIncidencia = codigoInci++;
         pendientes++;
         this.puesto = codigo;
     }
@@ -18,9 +19,9 @@ public class Incidencia {
     public String toString() {
         String mensaje="";
         if (estado.equals("Pendiente")) {
-            mensaje = "Incidencia"+numIncidencia+": " + "- Puesto: "+ puesto+ " - "+incidencia +" - "+estado;  
+            mensaje = "Incidencia "+numIncidencia+": " + "- Puesto: "+ puesto+ " - "+incidencia +" - "+estado;  
         } else if (estado.equals("Resuelta")) {
-            mensaje = "Incidencia"+numIncidencia+": " + "- Puesto: "+ puesto+ " - "+ estado+ " - "+solucion;  
+            mensaje = "Incidencia "+numIncidencia+": " + "- Puesto: "+ puesto+ " - "+incidencia+" - "+ estado+ " - "+solucion;  
         }
         return mensaje;
     }
@@ -40,6 +41,6 @@ public class Incidencia {
     public void resuelve(String solucion){
         pendientes--;
         this.solucion = solucion;
-        estado = "Resuelta";
+        this.estado = "Resuelta";
     }
 }
